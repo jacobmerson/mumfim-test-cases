@@ -1,0 +1,6 @@
+-pc_type lu
+-ksp_type preonly
+#-ksp_type cg
+-snes_monitor
+-snes_linesearch_monitor
+-snes_type newtonls

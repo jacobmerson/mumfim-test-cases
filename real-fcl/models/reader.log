@@ -1,0 +1,32 @@
+-- Sim_logOn()
+--[[
+17.0-220516 Platform x64_rhel7_gcc48
+--]]
+-- Sim_logOn()
+-- SimModel_start()
+--[[
+SimModel: 220516 Platform: x64_rhel7_gcc48
+--]]
+SimModel_start()
+-- Sim_readLicenseFile(nil)
+-- Sim_readLicenseFile(nil)
+-- Progress_new()
+p27970480 = Progress_new()
+-- Progress_setCallback(p27970480, p4386992)
+-- Progress_setCallback(p27970480, p4386992)
+-- GM_load("FCL_model_thin.dmg", nil, p27970480)
+--[[
+  SimErrorString(_FILE_): util/io/SFileStorageManager.cc
+  SimErrorInt(_LINE_): 68
+  SimErrorString(name): /lore/mersoj/real-fcl/models/FCL_model_thin.dmg
+--]]
+--[[
+Error: Code: 104 String: Bad data encountered in file /lore/mersoj/real-fcl/models/FCL_model_thin.dmg [SError.cc:37]
+--]]
+GM_load("FCL_model_thin.dmg", nil, p27970480)
+-- Progress_delete(p27970480)
+Progress_delete(p27970480)
+-- Sim_unregisterAllKeys()
+-- Sim_unregisterAllKeys()
+-- SimModel_stop()
+SimModel_stop()

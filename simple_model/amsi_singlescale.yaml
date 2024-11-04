@@ -1,0 +1,15 @@
+amsi: 
+  multiscale: 
+    scales:
+      macro: 1
+      micro_fo: 1
+    relations:
+      macro: [micro_fo]
+      micro_fo: [macro]
+  analysis:
+    petsc:
+      enabled: true
+      options file: petsc_options
+    results directory: results/neohookean
+
+#    results directory: results/batched-pytorch-larger-strain

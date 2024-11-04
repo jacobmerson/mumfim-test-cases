@@ -1,0 +1,13 @@
+amsi: 
+  multiscale: 
+    scales:
+      macro: 1
+      micro_fo: 36
+    relations:
+      macro: [micro_fo]
+      micro_fo: [macro]
+  analysis:
+    petsc:
+      enabled: true
+      options file: /gpfs/u/scratch/PASC/PASCmrsn/simple_model//petsc_options
+    results directory: /gpfs/u/scratch/PASC/PASCmrsn/simple_model//results/neohookean_interactive_solution_residual_convergence

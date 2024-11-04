@@ -1,0 +1,51 @@
+Initialize Batched Neohookean analysis
+Simulation time updated: 0.1
+Simulation time updated: 0.1
+Local equations = 29, Global Equations = 29
+Local equations = 29, Global Equations = 29
+Vector ownership range: 0-29
+Matrix ownership range: 0-29
+(Re)initialized the matrix, vectors and the solver
+Load step = 0
+Computed 24 RVEs in 0.000206 seconds. On rank 1.
+  0 SNES Function norm 6.811962213373e-02 
+Computed 24 RVEs in 0.000171 seconds. On rank 1.
+Computed 24 RVEs in 0.000168 seconds. On rank 1.
+      Line search: gnorm after quadratic fit 2.691280707743e+01
+Computed 24 RVEs in 0.00017 seconds. On rank 1.
+      Line search: Cubic step no good, shrinking lambda, current gnorm 4.120507846301e+01 lambda=1.0000000000000002e-02
+Computed 24 RVEs in 0.000167 seconds. On rank 1.
+      Line search: Cubic step no good, shrinking lambda, current gnorm 5.610742685905e+01 lambda=1.0000000000000002e-03
+Computed 24 RVEs in 0.000167 seconds. On rank 1.
+      Line search: Cubic step no good, shrinking lambda, current gnorm 7.165329517553e+01 lambda=1.0000000000000003e-04
+Computed 24 RVEs in 0.000179 seconds. On rank 1.
+      Line search: Cubic step no good, shrinking lambda, current gnorm 8.787801071233e+01 lambda=1.0000000000000004e-05
+Computed 24 RVEs in 0.00017 seconds. On rank 1.
+      Line search: Cubic step no good, shrinking lambda, current gnorm 1.048186815187e+02 lambda=1.0000000000000004e-06
+Computed 24 RVEs in 0.000168 seconds. On rank 1.
+      Line search: Cubic step no good, shrinking lambda, current gnorm 1.225142475397e+02 lambda=1.0000000000000005e-07
+Computed 24 RVEs in 0.000168 seconds. On rank 1.
+      Line search: Cubic step no good, shrinking lambda, current gnorm 1.410055625927e+02 lambda=1.0000000000000005e-08
+Computed 24 RVEs in 0.000179 seconds. On rank 1.
+      Line search: Cubic step no good, shrinking lambda, current gnorm 1.603354843737e+02 lambda=1.0000000000000005e-09
+Computed 24 RVEs in 0.000167 seconds. On rank 1.
+      Line search: Cubic step no good, shrinking lambda, current gnorm 1.805489692343e+02 lambda=1.0000000000000006e-10
+Computed 24 RVEs in 0.000173 seconds. On rank 1.
+      Line search: Cubic step no good, shrinking lambda, current gnorm 2.016931714431e+02 lambda=1.0000000000000006e-11
+Computed 24 RVEs in 0.000169 seconds. On rank 1.
+      Line search: Cubic step no good, shrinking lambda, current gnorm 2.238175470669e+02 lambda=1.0000000000000006e-12
+Computed 24 RVEs in 0.000167 seconds. On rank 1.
+      Line search: Cubic step no good, shrinking lambda, current gnorm 2.469739626712e+02 lambda=1.0000000000000007e-13
+      Line search: unable to find good step length! After 12 tries 
+      Line search: fnorm=6.8119622133730143e-02, gnorm=2.4697396267123784e+02, ynorm=6.7734318325757476e-04, minlambda=9.9999999999999998e-13, lambda=1.0000000000000007e-13, initial slope=-4.6402829196421774e-03
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 69949 RUNNING AT Jacobs-MacBook-Pro.local
+=   EXIT CODE: 6
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Terminated: 15 (signal 15)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions

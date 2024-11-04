@@ -1,0 +1,1479 @@
+model traits:
+  name: macro
+  cases:
+    - case name: bone_uniax_x_decrease_steps_and_damping
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: x
+                  type: expression
+                  # value: 0.0025*$t
+                  #value: 0.05*$t
+                  value: 0.5*$t
+                  num variables: 1
+                  geometry: [[2, 3]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+            material model:
+              continuum model:
+                #pytorch:
+                #  model file:
+                #    - name: model file
+                #      type: string
+                #      value: "/Users/jacobmerson/code/machine_learn_fiber_network_constitutive/kuhl-network.pt"
+                #      geometry: [[3,0]]
+                #  youngs modulus:
+                #    - name: youngs modulus
+                #      type: scalar
+                #      value: 1000000000
+                #      geometry: [[3, 0]]
+                #  poisson ratio:
+                #    - name: poisson ratio
+                #      type: scalar
+                #      value: 0.29999999999999999
+                #      geometry: [[3, 0]]
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000000000
+                      geometry: [[3, 0]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 0]]
+              multiscale model:
+                minimum stiffness:
+                  - name: minimum stiffness
+                    type: scalar
+                    value: 10000.0
+                    geometry: [[9,1]]
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: /Users/jacobmerson/code/diluted_delaunay/diluted_delaunay_networks/
+                      geometry: [[3, 0]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: diluted_delaunay_threshold_5_target_6.5_id_
+                      geometry: [[3, 0]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 1
+                      geometry: [[3, 0]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 0]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 0]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 0]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 0]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 25
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    #value: 1.0000000000000001e-05
+                    value: 1.0000000000000001e-02
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 0.7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: neohookean
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: x
+                  type: expression
+                  # value: 0.0025*$t
+                  value: 0.0005*$t
+                  num variables: 1
+                  geometry: [[2, 3]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 0]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 0]]
+              multiscale model:
+                minimum stiffness:
+                  - name: minimum stiffness
+                    type: scalar
+                    value: 10000.0
+                    geometry: [[9,1]]
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: voronoi_networks/
+                      geometry: [[3, 0]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: voronoi_
+                      geometry: [[3, 0]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 1
+                      geometry: [[3, 0]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 0]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 0]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 0]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 0]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 2
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 0.7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: increase_step_size
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: x
+                  type: expression
+                  # value: 0.0025*$t
+                  #value: 0.001*$t
+                  value: 0.1*$t
+                  num variables: 1
+                  geometry: [[2, 3]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 10000000.0
+                      geometry: [[3, 0]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 0]]
+              multiscale model:
+                minimum stiffness:
+                  - name: minimum stiffness
+                    type: scalar
+                    value: 10000.0
+                    geometry: [[9,1]]
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: voronoi_networks/
+                      geometry: [[3, 0]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: voronoi_
+                      geometry: [[3, 0]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 1
+                      geometry: [[3, 0]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 0]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 0]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 0]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 0]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 1
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    # 0: load residual, 1: solution residual, 2: mixed residual
+                    value: 1
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    # 0: iniial, 1: load step, 2: iteration
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 0.7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: high_modulus
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: x
+                  type: expression
+                  # value: 0.0025*$t
+                  #value: 0.001*$t
+                  value: 0.1*$t
+                  num variables: 1
+                  geometry: [[2, 3]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 10000000.0
+                      geometry: [[3, 0]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 0]]
+              multiscale model:
+                minimum stiffness:
+                  - name: minimum stiffness
+                    type: scalar
+                    value: 10000000.0
+                    geometry: [[9,1]]
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: voronoi_networks/
+                      geometry: [[3, 0]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: voronoi_
+                      geometry: [[3, 0]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 1
+                      geometry: [[3, 0]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 0]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 0]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 0]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 0]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 10
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    # 0: load residual, 1: solution residual, 2: mixed residual
+                    value: 1
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    # 0: iniial, 1: load step, 2: iteration
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 0.7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: high_modulus2
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: x
+                  type: expression
+                  # value: 0.0025*$t
+                  #value: 0.001*$t
+                  value: 0.1*$t
+                  num variables: 1
+                  geometry: [[2, 3]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000000000.0
+                      geometry: [[3, 0]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 0]]
+              multiscale model:
+                minimum stiffness:
+                  - name: minimum stiffness
+                    type: scalar
+                    value: 1000000000.0
+                    geometry: [[9,1]]
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: voronoi_networks/
+                      geometry: [[3, 0]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: voronoi_
+                      geometry: [[3, 0]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 1
+                      geometry: [[3, 0]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 0]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 0]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 0]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 0]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 10
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    # 0: load residual, 1: solution residual, 2: mixed residual
+                    value: 1
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    # 0: iniial, 1: load step, 2: iteration
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 0.7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: high_modulus_increase_damping
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: x
+                  type: expression
+                  # value: 0.0025*$t
+                  #value: 0.001*$t
+                  value: 0.1*$t
+                  num variables: 1
+                  geometry: [[2, 3]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 10000000.0
+                      geometry: [[3, 0]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 0]]
+              multiscale model:
+                minimum stiffness:
+                  - name: minimum stiffness
+                    type: scalar
+                    value: 10000000.0
+                    geometry: [[9,1]]
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: voronoi_networks/
+                      geometry: [[3, 0]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: voronoi_
+                      geometry: [[3, 0]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 1
+                      geometry: [[3, 0]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 0]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 0]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 0]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 0]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 10
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    # 0: load residual, 1: solution residual, 2: mixed residual
+                    value: 1
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    # 0: iniial, 1: load step, 2: iteration
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 1.4
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: small_steps_E100x
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: x
+                  type: expression
+                  # value: 0.0025*$t
+                  #value: 0.001*$t
+                  value: 0.1*$t
+                  num variables: 1
+                  geometry: [[2, 3]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 10000000000
+                      geometry: [[3, 0]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 0]]
+              multiscale model:
+                minimum stiffness:
+                  - name: minimum stiffness
+                    type: scalar
+                    value: 10000000000
+                    geometry: [[9,1]]
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: voronoi_networks/
+                      geometry: [[3, 0]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: voronoi_
+                      geometry: [[3, 0]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 1
+                      geometry: [[3, 0]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 0]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 0]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 0]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 0]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 10
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    # 0: load residual, 1: solution residual, 2: mixed residual
+                    value: 1
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    # 0: iniial, 1: load step, 2: iteration
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 0.7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: small_steps_E1000x
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: x
+                  type: expression
+                  # value: 0.0025*$t
+                  #value: 0.001*$t
+                  value: 0.1*$t
+                  num variables: 1
+                  geometry: [[2, 3]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 4]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 2]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 3]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 100000000000
+                      geometry: [[3, 0]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 0]]
+              multiscale model:
+                minimum stiffness:
+                  - name: minimum stiffness
+                    type: scalar
+                    value: 100000000000
+                    geometry: [[9,1]]
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: voronoi_networks/
+                      geometry: [[3, 0]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: voronoi_
+                      geometry: [[3, 0]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 1
+                      geometry: [[3, 0]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 0]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 0]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 0]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 0]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 10
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    # 0: load residual, 1: solution residual, 2: mixed residual
+                    value: 1
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    # 0: iniial, 1: load step, 2: iteration
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 0.7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]

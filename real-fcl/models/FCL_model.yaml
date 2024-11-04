@@ -1,0 +1,2573 @@
+model traits:
+  name: macro
+  cases:
+    - case name: uniax_x
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/nets_theta_0_2PI_20_stretch_1_2_10/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: theta_$orientation_align_$alignment_realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 10
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+                  stochastic field:
+                    alignment field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 10
+                          geometry: [[3, 92]]
+                    orientation field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 20
+                          geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: uniax_x_cpu
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/nets_theta_0_2PI_20_stretch_1_2_10/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: theta_$orientation_align_$alignment_realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 1
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+                  stochastic field:
+                    alignment field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 10
+                          geometry: [[3, 92]]
+                    orientation field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 20
+                          geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 1000000
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: uniax_x_uniform
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/uniform_nets/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 500
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: uniax_x_uniform_align_1
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/nets_theta_0_2PI_20_stretch_1_2_10/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: theta_$orientation_align_1_realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 10
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+                  stochastic field:
+                    alignment field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 10
+                          geometry: [[3, 92]]
+                    orientation field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 20
+                          geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: uniax_x_uniform_align_5
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/nets_theta_0_2PI_20_stretch_1_2_10/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: theta_$orientation_align_5_realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 10
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+                  stochastic field:
+                    alignment field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 10
+                          geometry: [[3, 92]]
+                    orientation field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 20
+                          geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: bone_uniax_x
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/nets_theta_0_2PI_20_stretch_1_2_10/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: theta_$orientation_align_$alignment_realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 10
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+                  stochastic field:
+                    alignment field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 10
+                          geometry: [[3, 92]]
+                    orientation field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 20
+                          geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: bone_uniax_x_uniform
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/uniform_nets/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 500
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: bone_uniax_x_uniform_align_1
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/nets_theta_0_2PI_20_stretch_1_2_10/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: theta_$orientation_align_1_realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 10
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+                  stochastic field:
+                    alignment field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 10
+                          geometry: [[3, 92]]
+                    orientation field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 20
+                          geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: bone_uniax_x_uniform_align_5
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/nets_theta_0_2PI_20_stretch_1_2_10/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: theta_$orientation_align_5_realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 10
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+                  stochastic field:
+                    alignment field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 10
+                          geometry: [[3, 92]]
+                    orientation field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 20
+                          geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: uniax_x_uniform_voronoi
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/uniform_voronoi_nets/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 100
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: bone_uniax_x_uniform_voronoi
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/uniform_voronoi_nets/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 100
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: bone_uniax_x_uniform_align_4
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/nets_theta_0_2PI_20_stretch_1_2_10/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: theta_$orientation_align_4_realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 10
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+                  stochastic field:
+                    alignment field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 10
+                          geometry: [[3, 92]]
+                    orientation field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 20
+                          geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: bone_uniax_x_uniform_align_9
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/nets_theta_0_2PI_20_stretch_1_2_10/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: theta_$orientation_align_9_realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 10
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+                  stochastic field:
+                    alignment field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 10
+                          geometry: [[3, 92]]
+                    orientation field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 20
+                          geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]
+    - case name: bone_uniax_x_alignment_field
+      model traits:
+        default geometry type: dimension id
+        problem definition:
+          macro:
+            displacement:
+              x:
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: x
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: x
+                  type: expression
+                  value: 0.0025*$t
+                  num variables: 1
+                  geometry: [[2, 78]]
+              y:
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: y
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+              z:
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[0, 58]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 82]]
+                - name: z
+                  type: scalar
+                  value: 0
+                  geometry: [[2, 78]]
+            material model:
+              continuum model:
+                isotropic_neohookean:
+                  youngs modulus:
+                    - name: youngs modulus
+                      type: scalar
+                      value: 1000
+                      geometry: [[3, 92]]
+                  poisson ratio:
+                    - name: poisson ratio
+                      type: scalar
+                      value: 0.29999999999999999
+                      geometry: [[3, 92]]
+              multiscale model:
+                fiber only:
+                  directory:
+                    - name: directory
+                      type: string
+                      value: real-fcl/nets_theta_0_2PI_20_stretch_1_2_10/
+                      geometry: [[3, 92]]
+                  prefix:
+                    - name: prefix
+                      type: string
+                      value: theta_$orientation_align_$alignment_realization_
+                      geometry: [[3, 92]]
+                  count:
+                    - name: count
+                      type: int
+                      value: 10
+                      geometry: [[3, 92]]
+                  structural member:
+                    - name: structural member
+                      type: int
+                      value: 0
+                      geometry: [[3, 92]]
+                  force reaction:
+                    linear:
+                      youngs modulus:
+                        - name: youngs modulus
+                          type: scalar
+                          value: 1000
+                          geometry: [[3, 92]]
+                  radius:
+                    - name: radius
+                      type: scalar
+                      value: 3.4991127099999998e-08
+                      geometry: [[3, 92]]
+                  volume fraction:
+                    - name: volume fraction
+                      type: scalar
+                      value: 0.0030000000000000001
+                      geometry: [[3, 92]]
+                  stochastic field:
+                    alignment field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 10
+                          geometry: [[3, 92]]
+                    orientation field:
+                      filename:
+                        - name: filename
+                          type: string
+                          value: real-fcl/RFG1_alignment.txt
+                          geometry: [[3, 92]]
+                      number of bins:
+                        - name: number of bins
+                          type: int
+                          value: 20
+                          geometry: [[3, 92]]
+        solution strategy:
+          macro:
+            num timesteps:
+              - name: num timesteps
+                type: int
+                value: 50
+                geometry: ~
+            load balancing:
+              - name: load balancing
+                type: int
+                value: -2
+                geometry: ~
+            convergence operator:
+              nonlinear iteration:
+                convergence type:
+                  - name: convergence type
+                    type: int
+                    value: 2
+                    geometry: ~
+                reference value:
+                  - name: reference value
+                    type: int
+                    value: 1
+                    geometry: ~
+                epsilon:
+                  - name: epsilon
+                    type: scalar
+                    value: 1.0000000000000001e-05
+                    geometry: ~
+            microscale convergence operator:
+              explicit timestep:
+                amplitude:
+                  Smooth Step:
+                    load time:
+                      - name: load time
+                        type: scalar
+                        value: 5
+                        geometry: ~
+                viscous damping factor:
+                  - name: viscous damping factor
+                    type: scalar
+                    value: 7
+                    geometry: ~
+                critical time scale factor:
+                  - name: critical time scale factor
+                    type: scalar
+                    value: 0.80000000000000004
+                    geometry: ~
+                energy check epsilon:
+                  - name: energy check epsilon
+                    type: scalar
+                    value: 0.01
+                    geometry: ~
+                serial to GPU dof cutoff:
+                  - name: serial to GPU dof cutoff
+                    type: int
+                    value: 0
+                    geometry: ~
+                micro solver tolerance:
+                  - name: micro solver tolerance
+                    type: scalar
+                    value: 9.9999999999999995e-07
+                    geometry: ~
+        output:
+          macro:
+            output orientation tensor:
+              3D Orientation Tensor:
+                - name: 3D Orientation Tensor
+                  type: void
+                  geometry: [[9, 1]]
+              2D Orientation Tensor:
+                axis:
+                  - name: axis
+                    type: vector
+                    value: [0, 1, 0]
+                    geometry: [[9, 1]]

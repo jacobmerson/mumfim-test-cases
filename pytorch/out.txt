@@ -1,0 +1,464 @@
+continuum model type: linear_elastic
+Adding Torch Model with Name /Users/jacobmerson/code/machine_learn_fiber_network_constitutive/kuhl_network_H2.pt and 6 RVEs
+Simulation time updated: 0.04
+Simulation time updated: 0.04
+There are 16 dofs fixed by essential boundary conditions.
+Local equations = 8, Global Equations = 8
+Local equations = 8, Global Equations = 8
+Vector ownership range: 0-8
+Matrix ownership range: 0-8
+(Re)initialized the matrix, vectors and the solver
+Load step = 0
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.163585 seconds. On rank 1.
+  0 SNES Function norm 4.352025812907e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.62908 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 1.08795 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00456643, 0.218745, 0.435203]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.162619 seconds. On rank 1.
+      Line search terminated: lambda = 1.00516, fnorm = 0.00236897
+  1 SNES Function norm 2.368971792922e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.08
+Load step = 1
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.022411 seconds. On rank 1.
+  0 SNES Function norm 5.171856714040e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.023778 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.031948 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.0063803, 0.260184, 0.517186]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025068 seconds. On rank 1.
+      Line search terminated: lambda = 1.00602, fnorm = 0.00334675
+  1 SNES Function norm 3.346749854714e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.12
+Load step = 2
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.022843 seconds. On rank 1.
+  0 SNES Function norm 5.335491518651e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.032137 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.022156 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00681583, 0.268474, 0.533549]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.023113 seconds. On rank 1.
+      Line search terminated: lambda = 1.00622, fnorm = 0.00357405
+  1 SNES Function norm 3.574045669275e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.16
+Load step = 3
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020415 seconds. On rank 1.
+  0 SNES Function norm 5.477944680751e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.026758 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020215 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00726379, 0.275718, 0.547794]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020133 seconds. On rank 1.
+      Line search terminated: lambda = 1.00649, fnorm = 0.00379495
+  1 SNES Function norm 3.794949407935e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.2
+Load step = 4
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.02699 seconds. On rank 1.
+  0 SNES Function norm 5.604382215835e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020172 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020116 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00771392, 0.282146, 0.560438]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020079 seconds. On rank 1.
+      Line search terminated: lambda = 1.00671, fnorm = 0.00406297
+  1 SNES Function norm 4.062971374049e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.24
+Load step = 5
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.02646 seconds. On rank 1.
+  0 SNES Function norm 5.713188510037e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020123 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020344 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00818076, 0.287704, 0.571319]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.026192 seconds. On rank 1.
+      Line search terminated: lambda = 1.00697, fnorm = 0.0043128
+  1 SNES Function norm 4.312803020190e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.28
+Load step = 6
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.02041 seconds. On rank 1.
+  0 SNES Function norm 5.801444538108e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020282 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020101 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00867713, 0.292247, 0.580144]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.02535 seconds. On rank 1.
+      Line search terminated: lambda = 1.0073, fnorm = 0.00456355
+  1 SNES Function norm 4.563548239111e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.32
+Load step = 7
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020409 seconds. On rank 1.
+  0 SNES Function norm 5.867320037283e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020206 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025616 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00918041, 0.295671, 0.586732]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019877 seconds. On rank 1.
+      Line search terminated: lambda = 1.00764, fnorm = 0.00483381
+  1 SNES Function norm 4.833807796556e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.36
+Load step = 8
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020207 seconds. On rank 1.
+  0 SNES Function norm 5.909181759482e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020178 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025834 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00970335, 0.2979, 0.590918]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020208 seconds. On rank 1.
+      Line search terminated: lambda = 1.00802, fnorm = 0.0051256
+  1 SNES Function norm 5.125598730831e-03
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020082 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025762 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [2.67498e-06, 0.00256539, 0.0051256]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019688 seconds. On rank 1.
+      Line search terminated: lambda = 1.00101, fnorm = 6.68746e-06
+  2 SNES Function norm 6.687460865052e-06
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.4
+Load step = 9
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019629 seconds. On rank 1.
+  0 SNES Function norm 5.873903528869e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019805 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025022 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.0100697, 0.296232, 0.58739]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019397 seconds. On rank 1.
+      Line search terminated: lambda = 1.00838, fnorm = 0.00532134
+  1 SNES Function norm 5.321341302164e-03
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019554 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025475 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [2.65518e-06, 0.00266589, 0.00532134]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019837 seconds. On rank 1.
+      Line search terminated: lambda = 1.00197, fnorm = 9.29312e-06
+  2 SNES Function norm 9.293118238284e-06
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.44
+Load step = 10
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019502 seconds. On rank 1.
+  0 SNES Function norm 5.860798671952e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019756 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.02474 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.010624, 0.295724, 0.58608]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019441 seconds. On rank 1.
+      Line search terminated: lambda = 1.00887, fnorm = 0.00561533
+  1 SNES Function norm 5.615333404124e-03
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019566 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025367 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [6.58718e-06, 0.00280361, 0.00561533]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.01981 seconds. On rank 1.
+      Line search terminated: lambda = 0.998558, fnorm = 5.26974e-06
+  2 SNES Function norm 5.269744175199e-06
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.48
+Load step = 11
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019582 seconds. On rank 1.
+  0 SNES Function norm 5.820761807259e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019699 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.024956 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00559568, 0.146935, 0.582076]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019453 seconds. On rank 1.
+      Line search terminated: lambda = 0.786458, fnorm = 0.0656264
+  1 SNES Function norm 6.562635368874e-02
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019509 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025499 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.000294087, 0.0328852, 0.0656264]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.01969 seconds. On rank 1.
+      Line search terminated: lambda = 1.00218, fnorm = 0.000149004
+  2 SNES Function norm 1.490037076991e-04
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.52
+Load step = 12
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019549 seconds. On rank 1.
+  0 SNES Function norm 2.878092027417e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019621 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.024583 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00590364, 0.145394, 0.287809]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019353 seconds. On rank 1.
+      Line search terminated: lambda = 1.00997, fnorm = 0.00314866
+  1 SNES Function norm 3.148660439243e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.56
+Load step = 13
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019459 seconds. On rank 1.
+  0 SNES Function norm 2.861073744934e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025966 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019753 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.0063527, 0.144659, 0.286107]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019661 seconds. On rank 1.
+      Line search terminated: lambda = 1.01078, fnorm = 0.00340525
+  1 SNES Function norm 3.405246920780e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.6
+Load step = 14
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019871 seconds. On rank 1.
+  0 SNES Function norm 2.803488417064e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025551 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.01935 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00672154, 0.141873, 0.280349]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019483 seconds. On rank 1.
+      Line search terminated: lambda = 1.0116, fnorm = 0.00362271
+  1 SNES Function norm 3.622709059376e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.64
+Load step = 15
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.026085 seconds. On rank 1.
+  0 SNES Function norm 2.733411356485e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020174 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019924 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00711424, 0.138476, 0.273341]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019915 seconds. On rank 1.
+      Line search terminated: lambda = 1.0126, fnorm = 0.00384985
+  1 SNES Function norm 3.849854692078e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.68
+Load step = 16
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025577 seconds. On rank 1.
+  0 SNES Function norm 2.652558737873e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019732 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019749 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00754481, 0.134541, 0.265256]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.026027 seconds. On rank 1.
+      Line search terminated: lambda = 1.01369, fnorm = 0.0041194
+  1 SNES Function norm 4.119397349574e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.72
+Load step = 17
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020096 seconds. On rank 1.
+  0 SNES Function norm 2.562821911160e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019926 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.0252 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00400684, 0.0650869, 0.256282]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020181 seconds. On rank 1.
+      Line search terminated: lambda = 0.786875, fnorm = 0.0298087
+  1 SNES Function norm 2.980865905632e-02
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.01978 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019645 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.000228223, 0.0149607, 0.0298087]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.026029 seconds. On rank 1.
+      Line search terminated: lambda = 1.00373, fnorm = 0.000117211
+  2 SNES Function norm 1.172111868460e-04
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.76
+Load step = 18
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020134 seconds. On rank 1.
+  0 SNES Function norm 1.211818139238e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019949 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025103 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00412687, 0.0616389, 0.121182]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020251 seconds. On rank 1.
+      Line search terminated: lambda = 1.01623, fnorm = 0.0022926
+  1 SNES Function norm 2.292598508939e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.8
+Load step = 19
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019664 seconds. On rank 1.
+  0 SNES Function norm 1.181368631042e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019782 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.02582 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00454704, 0.0602268, 0.118137]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019892 seconds. On rank 1.
+      Line search terminated: lambda = 1.01825, fnorm = 0.00255787
+  1 SNES Function norm 2.557869913891e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.84
+Load step = 20
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019737 seconds. On rank 1.
+  0 SNES Function norm 1.130378937577e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025358 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020201 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00487819, 0.057762, 0.113038]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019915 seconds. On rank 1.
+      Line search terminated: lambda = 1.02027, fnorm = 0.00278272
+  1 SNES Function norm 2.782719180268e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.88
+Load step = 21
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019773 seconds. On rank 1.
+  0 SNES Function norm 1.079203458064e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.026211 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020157 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.0052505, 0.055299, 0.10792]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019901 seconds. On rank 1.
+      Line search terminated: lambda = 1.0226, fnorm = 0.00304849
+  1 SNES Function norm 3.048490893924e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.92
+Load step = 22
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.025523 seconds. On rank 1.
+  0 SNES Function norm 1.030196894621e-01
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020344 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019654 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00569044, 0.0529608, 0.10302]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019679 seconds. On rank 1.
+      Line search terminated: lambda = 1.02528, fnorm = 0.00337024
+  1 SNES Function norm 3.370244380102e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 0.96
+Load step = 23
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.02657 seconds. On rank 1.
+  0 SNES Function norm 9.849986443963e-02
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020535 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020297 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00622628, 0.0508421, 0.0984999]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.026107 seconds. On rank 1.
+      Line search terminated: lambda = 1.0285, fnorm = 0.00377169
+  1 SNES Function norm 3.771694435544e-03
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 1
+Load step = 24
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020493 seconds. On rank 1.
+  0 SNES Function norm 9.451145127759e-02
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.020074 seconds. On rank 1.
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.019811 seconds. On rank 1.
+      Line search: lambdas = [1., 0.5, 0.], fnorms = [0.00690456, 0.0490247, 0.0945115]
+There are 16 dofs fixed by essential boundary conditions.
+Computed 6 RVEs in 0.027043 seconds. On rank 1.
+      Line search terminated: lambda = 1.03224, fnorm = 0.00429916
+  1 SNES Function norm 4.299164869145e-03
+Final load step converged. Case complete.
+checkpointing (macro)
+Rewriting at end of load step to include orientation data
+Simulation time updated: 1.04
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 5 unused database options. They are:
+Option left: name:-a value: ./amsi_options_1_1.yaml source: command line
+Option left: name:-b value: ./pytorch_test.yaml source: command line
+Option left: name:-c value: pytorch source: command line
+Option left: name:-g value: ./box.dmg source: command line
+Option left: name:-m value: ./box.smb source: command line

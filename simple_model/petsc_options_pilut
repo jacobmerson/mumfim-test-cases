@@ -1,0 +1,7 @@
+-pc_type hypre
+-pc_hypre_type pilut
+-pc_factor_shift_type positive_definite
+-ksp_type cg
+-ksp_converged_reason
+-ksp_view
+-options_left

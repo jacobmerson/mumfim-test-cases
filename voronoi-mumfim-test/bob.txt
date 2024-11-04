@@ -1,0 +1,90 @@
+      Line search: objective function at lambdas = 1. is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.5 is Inf or Nan, cutting lambda
+      Line search: lambdas = [0.25, 0.125, 0.], fnorms = [114340., 28330., 6.81196]
+      Line search terminated: lambda = 0.0537523, fnorms = 9607.68
+      Line search: objective function at lambdas = 1. is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.5 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.25 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.0625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.03125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.015625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.0078125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00390625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00195312 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000976562 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000488281 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000244141 is Inf or Nan, cutting lambda
+      Line search: lambdas = [0.00012207, 6.10352e-05, 0.], fnorms = [153770., 42739.5, 9607.68]
+      Line search terminated: lambda = 2.5247e-05, fnorms = 20124.8
+      Line search: objective function at lambdas = 1. is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.5 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.25 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.0625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.03125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.015625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.0078125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00390625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00195312 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000976562 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000488281 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000244141 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00012207 is Inf or Nan, cutting lambda
+      Line search: lambdas = [6.10352e-05, 3.05176e-05, 0.], fnorms = [726199., 77151.2, 20124.8]
+      Line search terminated: lambda = 1.49306e-05, fnorms = 39847.3
+      Line search: objective function at lambdas = 1. is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.5 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.25 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.0625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.03125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.015625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.0078125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00390625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00195312 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000976562 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000488281 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000244141 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00012207 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 6.10352e-05 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 3.05176e-05 is Inf or Nan, cutting lambda
+      Line search: lambdas = [1.52588e-05, 7.62939e-06, 0.], fnorms = [170358., 76598.9, 39847.3]
+      Line search terminated: lambda = 2.08484e-06, fnorms = 47517.6
+      Line search: objective function at lambdas = 1. is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.5 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.25 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.0625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.03125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.015625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.0078125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00390625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00195312 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000976562 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000488281 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000244141 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00012207 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 6.10352e-05 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 3.05176e-05 is Inf or Nan, cutting lambda
+      Line search: lambdas = [1.52588e-05, 7.62939e-06, 0.], fnorms = [463317., 108247., 47517.6]
+      Line search terminated: lambda = 3.4417e-06, fnorms = 67566.8
+      Line search: objective function at lambdas = 1. is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.5 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.25 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.0625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.03125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.015625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.0078125 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00390625 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00195312 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000976562 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000488281 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.000244141 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 0.00012207 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 6.10352e-05 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 3.05176e-05 is Inf or Nan, cutting lambda
+      Line search: objective function at lambdas = 1.52588e-05 is Inf or Nan, cutting lambda
+      Line search: lambdas = [7.62939e-06, 3.8147e-06, 0.], fnorms = [404290., 129202., 67566.8]
+      Line search terminated: lambda = 1.56371e-06, fnorms = 86326.

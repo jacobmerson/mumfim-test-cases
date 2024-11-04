@@ -1,0 +1,64 @@
+from __future__ import print_function
+from fibernetgen import *
+import numpy as np
+import os
+
+from scipy.spatial.transform import Rotation as Rot
+
+trim_size = 1.0
+#trim_size = np.array((1.0,0.5,0.5))
+gen_size = 2*trim_size
+#num_pts = 1200
+num_pts = 2400
+num_realizations=1
+num_angles = 20
+num_alignments = 10
+# do not want to crush the network...
+min_alignment = 1.0
+max_alignment=2.0
+
+# Don't need to include the endpoint since
+# 0 is the same as pi w.r.t. the fibers
+theta = np.linspace(0,np.pi,num_angles,endpoint=False)
+align_stretches = np.linspace(min_alignment, max_alignment, num_alignments)
+
+# FCL in in the XZ Plane...
+r = Rot.from_euler('y',theta)
+R = r.as_dcm() # convert the euler angles to a rotation matrix
+
+fiber_rad = 5E-5
+fiber_young_mod = 1E8
+fiber_density = 1000.0
+# density from the uniform nets (which I'm not recomputing currently)
+target_density = 442.742764542
+params = [BiotissueNetworkParams(fiber_young_mod, fiber_rad, fiber_density),]
+with open("network_collection_summary.txt", 'w') as summary_file:
+    summary_file.write("# theta_idx, align_idx, realization, theta_value, align_value\n")
+    for i in range(len(theta)):
+        for j in range(len(align_stretches)):
+            for k in range(num_realizations):
+                dn = generate_network()
+                # realizations start at 1 (legacy reasons in biotissue code
+                # all other bins start at 0
+                filename = "theta_{}_align_{}_realization_{}".format(i,j,k+1)
+                print("Generating: "+filename)
+
+                align_stretch = align_stretches[j]
+                dn = DelaunayNetwork(num_pts, gen_size, trim_size)
+                dispGrd = np.array(((align_stretch, 0, 0),
+                                    (0, 1.0/np.sqrt(align_stretch), 0),
+                                    (0, 0, 1.0/np.sqrt(align_stretch))))
+                dn.stretch(np.dot(R[i], dispGrd))
+                dn.trim()
+                lc = dn.compute_mean_length()
+                num_removed, sweeps = dn.remove_short_edges(lc/10)
+                #print("Removed {} short edges in {} sweeps".format(num_removed,sweeps))
+                lc = dn.compute_mean_length()
+                dn.remove_disconnected_regions()
+                num_removed, sweeps = dn.remove_hanging_nodes()
+                dn.assign_params(params, [0 for idx in range(len(dn.edges))])
+                dn.write_biotissue_input(filename+".txt")
+                with open(filename+"_summary.txt", 'w') as f:
+                    f.write(str(dn))
+                summary_file.write("{}, {}, {}, {}, {}\n".format(i,j,k,theta[i],align_stretches[j]))
+

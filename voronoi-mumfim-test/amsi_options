@@ -1,0 +1,11 @@
+@scales
+macro 1
+micro_fo 1
+@relations
+macro micro_fo
+micro_fo macro
+@util
+results ./results/multiscale
+@analysis
+petsc true
+petsc_options ./petsc_options
